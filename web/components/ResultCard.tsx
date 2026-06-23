@@ -6,26 +6,25 @@ const SNAP_DATE = SNAPSHOT_AT
   ? new Date(SNAPSHOT_AT).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
   : null;
 
-const intent = (text: string) => `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+// X's current intent endpoint (deep-links the mobile app reliably).
+const intent = (text: string) => `https://x.com/intent/post?text=${encodeURIComponent(text)}`;
 
 function wlTweetUrl(address: string) {
-  return intent(`gm @${SITE.twitterHandle} 🐾
+  return intent(`Requesting allowlist access for the ROBARK mint.
 
-I'm not on the ROBARK allowlist yet — but I'm here for the 5,555 pixel degens who survived the crash.
+Wallet: ${address}
 
-add my wallet ser 🙏
-${address}
+5,555 pixel NFTs on Ethereum. Mint June 29 at ${MINT_PRICE_ETH} ETH.
 
-#ROBARK #WL`);
+@${SITE.twitterHandle} #ROBARK`);
 }
 
 function shareTweetUrl() {
-  return intent(`I'm APPROVED to mint ROBARK ✅🐾
+  return intent(`I'm on the ROBARK allowlist and approved to mint.
 
-one of 5,555 pixel degens who survived the crash — minting at just ${MINT_PRICE_ETH} ETH.
+5,555 pixel NFTs on Ethereum. Mint June 29 at ${MINT_PRICE_ETH} ETH.
 
-check if your wallet's on the allowlist 👇
-${SITE.url}/checker
+Check your eligibility: ${SITE.url}/checker
 
 @${SITE.twitterHandle} #ROBARK`);
 }
