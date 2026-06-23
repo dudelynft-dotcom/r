@@ -30,6 +30,32 @@ function load(): SnapshotFile | null {
   return cache;
 }
 
+// Tier 1 = top 50,000 wallets by # eligible collections held (tie-break: address asc).
+// MUST match snapshot/make_snapshot.py / the OpenSea tier1/tier2 CSV split exactly.
+const TIER1_SIZE = 50000;
+let tier1Cache: Set<string> | null = null;
+
+function tier1Set(): Set<string> {
+  if (tier1Cache) return tier1Cache;
+  const snap = load();
+  if (!snap) return (tier1Cache = new Set());
+  const entries = Object.entries(snap.wallets);
+  entries.sort(
+    (a, b) => b[1].length - a[1].length || (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0),
+  );
+  tier1Cache = new Set(entries.slice(0, TIER1_SIZE).map((e) => e[0]));
+  return tier1Cache;
+}
+
+/** Which allowlist tier a wallet is in: 1 (top holders, mints first), 2, or null. */
+export function walletTier(address: string): 1 | 2 | null {
+  const snap = load();
+  if (!snap) return null;
+  const a = address.toLowerCase();
+  if (!snap.wallets[a]?.length) return null;
+  return tier1Set().has(a) ? 1 : 2;
+}
+
 export function snapshotReady(): boolean {
   return load() !== null;
 }

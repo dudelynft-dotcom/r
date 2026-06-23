@@ -33,6 +33,7 @@ export type CheckResult = {
   address: string;
   matches: Match[];
   supporter: boolean;
+  tier: 1 | 2 | null; // allowlist tier (1 = top holders, mints first)
   phase: PhaseId;
   phaseLabel: string;
   source: "snapshot" | "demo";
@@ -48,15 +49,19 @@ const PHASE_LABELS: Record<PhaseId, string> = {
 export function buildResult(
   address: string,
   matches: Match[],
+  tier: 1 | 2 | null,
   source: CheckResult["source"],
   note?: string,
 ): CheckResult {
   const supporter = isSupporter(address);
   const phase: PhaseId = matches.length || supporter ? "allowlist" : "public";
+  // collection holders get their ranked tier; manual supporters ride in Tier 2
+  const resolvedTier = phase === "allowlist" ? tier ?? (supporter ? 2 : null) : null;
   return {
     address: address.toLowerCase(),
     matches,
     supporter,
+    tier: resolvedTier,
     phase,
     phaseLabel: PHASE_LABELS[phase],
     source,

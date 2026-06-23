@@ -48,6 +48,7 @@ export function ResultCard({
   const aText = eligible ? "text-robark-green" : "text-robark-red";
   const aBorder = eligible ? "border-robark-green" : "border-robark-red";
   const aBg = eligible ? "bg-robark-green" : "bg-robark-red";
+  const tierLabel = result.tier === 1 ? "Tier 1" : result.tier === 2 ? "Tier 2" : null;
 
   return (
     <div className={`relative overflow-hidden border-2 ${aBorder} bg-robark-ink`}>
@@ -78,18 +79,23 @@ export function ResultCard({
           <h3 className={`mt-2 font-display text-3xl font-bold leading-none sm:text-4xl ${aText}`}>
             {eligible ? "ALLOWLISTED" : "NOT ELIGIBLE"}
           </h3>
-          <span className={`mt-3 inline-flex items-center gap-1.5 border ${aBorder} ${aText} px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.15em]`}>
-            {eligible ? (
-              <><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg> Approved to mint</>
-            ) : (
-              <><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg> Not on the list</>
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+            <span className={`inline-flex items-center gap-1.5 border ${aBorder} ${aText} px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.15em]`}>
+              {eligible ? (
+                <><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg> Approved to mint</>
+              ) : (
+                <><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg> Not on the list</>
+              )}
+            </span>
+            {eligible && tierLabel && (
+              <span className="inline-flex items-center bg-robark-green px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-robark-black">
+                {tierLabel}{result.tier === 1 ? " · mints first" : ""}
+              </span>
             )}
-          </span>
+          </div>
           <p className="mt-3 text-sm text-robark-soft">
             {eligible
-              ? result.matches.length
-                ? `Qualified by ${result.matches.length} eligible collection${result.matches.length === 1 ? "" : "s"}.`
-                : "Verified supporter — added to the allowlist directly."
+              ? `${result.matches.length ? `Qualified by ${result.matches.length} eligible collection${result.matches.length === 1 ? "" : "s"}.` : "Verified supporter from X."}${result.tier === 1 ? " You're in Tier 1 — the top-holder window mints first." : result.tier === 2 ? " You're in Tier 2 — mints after Tier 1." : ""}`
               : "No eligible collection in this wallet — request a spot below or mint public."}
           </p>
         </div>
@@ -111,7 +117,7 @@ export function ResultCard({
       <div className="grid grid-cols-3 divide-x divide-robark-line border-t border-robark-line">
         <Stat label="Mint Price" value={`${MINT_PRICE_ETH} Ξ`} />
         <Stat label="Supply" value={COLLECTION.totalSupply.toLocaleString()} />
-        <Stat label={eligible ? "Phase" : "Access"} value={eligible ? "Allowlist" : "Public"} accent={aText} />
+        <Stat label={eligible ? "Phase" : "Access"} value={eligible ? (tierLabel ?? "Allowlist") : "Public"} accent={aText} />
       </div>
 
       {/* actions */}

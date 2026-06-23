@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { isAddress } from "viem";
 import { buildResult, isSupporter, ELIGIBLE_COLLECTIONS, type CheckResult, type Match } from "@/lib/eligibility";
-import { lookupWallet, snapshotReady } from "@/lib/snapshot";
+import { lookupWallet, walletTier, snapshotReady } from "@/lib/snapshot";
 
 export const runtime = "nodejs";
 
@@ -25,7 +25,7 @@ export async function POST(req: Request) {
   // Read straight from the finalized snapshot — no live chain call.
   if (snapshotReady()) {
     const matches = lookupWallet(addr);
-    return NextResponse.json(buildResult(addr, matches, "snapshot") satisfies CheckResult);
+    return NextResponse.json(buildResult(addr, matches, walletTier(addr), "snapshot") satisfies CheckResult);
   }
 
   // Snapshot file not present (e.g. before it's generated) — deterministic demo.
@@ -39,5 +39,6 @@ function demoResult(addr: string): CheckResult {
     : n % 3
       ? [{ ...ELIGIBLE_COLLECTIONS[n % ELIGIBLE_COLLECTIONS.length] }]
       : [];
-  return buildResult(addr, matches, "demo", "Demo data — snapshot.json not found.");
+  const demoTier: 1 | 2 | null = matches.length ? (n % 2 ? 1 : 2) : null;
+  return buildResult(addr, matches, demoTier, "demo", "Demo data — snapshot.json not found.");
 }
