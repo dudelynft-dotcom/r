@@ -58,12 +58,12 @@ export default function HomePage() {
       <section className="relative overflow-hidden border-b-2 border-robark-line">
         <div className="container-x grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
           <div className="animate-rise">
-            <div className="ticker">
-              <span className="text-robark-green"><span className="h-2 w-2 animate-blink bg-robark-green" /> Snapshot live</span>
-              <span className="text-robark-soft">{COLLECTION.totalSupply.toLocaleString()} supply</span>
-              <span className="text-robark-soft">{MINT_PRICE_ETH} ETH</span>
-              <span className="text-robark-rust">Ethereum</span>
-            </div>
+            <p className="font-mono text-xs lowercase tracking-wide text-robark-mute">
+              {COLLECTION.totalSupply.toLocaleString()} on ethereum
+              <span className="mx-2 text-robark-line">·</span>{MINT_PRICE_ETH} eth
+              <span className="mx-2 text-robark-line">·</span>
+              <span className="text-robark-rust">mint jun 29</span>
+            </p>
 
             <h1 className="mt-6 font-display text-[2.7rem] font-bold leading-[0.98] tracking-tight text-robark-white sm:text-6xl lg:text-7xl">
               5,555 degens
