@@ -1,0 +1,171 @@
+# ROBARK traits — machine-readable mirror of TRAITS.md.
+# Every option has a `prompt` fragment injected into the image prompt. The
+# `style` + `negative` blocks force the hand-drawn, NON-AI look on every piece.
+
+collection:
+  name: "ROBARK"
+  size: 10000
+
+  # The base character — ALWAYS the exact same dog face (matches master art:
+  # art-previews/master art/). Fluffy cream droopy-eared dog, sleepy deadpan face.
+  # Pose follows OK-Guy: chest-up, facing viewer, casual thumbs-up, deadpan.
+  base_character: >-
+    a cartoon dog named ROBARK, always the exact same dog: fluffy cream and tan
+    fur, soft droopy floppy ears with darker tan tips, a big round black nose, a
+    rounded fuzzy muzzle, heavy half-closed sleepy tired eyes, a calm unbothered
+    deadpan expression, a slightly raised eyebrow; shown from the chest up, facing
+    the viewer, giving a casual thumbs-up with one rounded cartoon paw
+
+  # THE STYLE LAW — OK-Guy hand-drawn comic. Same look on every piece. NOT AI.
+  style: >-
+    OK-Guy meme art style, clean bold even black outlines, flat bold colors with
+    simple cel shading, hand-drawn indie comic look, full-bleed background with no
+    border, limited clean palette, drawn by a human illustrator, NOT ai-generated,
+    no airbrush, no smooth gradients, no photorealism, no 3d
+
+  # Anti-AI + no-text negative. FLUX ignores negatives, so these are ALSO baked
+  # into the positive prompt by the generator; kept here for models that use them.
+  negative: >-
+    smooth gradients, airbrush, soft shading, 3d render, photorealistic, glossy,
+    digital sheen, perfect symmetry, ai-generated look, octane render, cinematic
+    lighting, blurry, painterly, text, words, letters, numbers, signs, logo,
+    watermark, signature, extra characters
+
+layers:
+  - name: Background
+    weights:
+      # plain panels (commons) — clean flat color behind the character
+      - { value: "Plain Cream", weight: 7, prompt: "a plain flat cream studio background inside the comic panel, no text" }
+      - { value: "Plain Slate", weight: 6, prompt: "a plain flat slate-grey background, no text" }
+      - { value: "Plain Blush", weight: 5, prompt: "a plain flat dusty-blush pink background, no text" }
+      # detailed crypto-crash worlds (rich illustrated scenes, OK-Guy energy, original)
+      - { value: "Red Candle City", weight: 13, prompt: "a detailed background skyline built of giant red candlestick bars collapsing like crashing skyscrapers, jagged red trend lines plunging down, rolling smoke clouds, dramatic flat comic illustration, no text" }
+      - { value: "Liquidation Inferno", weight: 10, prompt: "a detailed background of a burning city at night, blazing orange flames and black smoke engulfing buildings, floating embers, deep red sky, flat comic illustration, no text" }
+      - { value: "Rug Pull Crater", weight: 8, prompt: "a detailed background of a giant smoking crater blasted into cracked earth, rubble and dust clouds, tiny falling debris, distant toppled towers, flat comic illustration, no text" }
+      - { value: "Trading Floor Meltdown", weight: 8, prompt: "a detailed background of a wall of glowing monitors all flashing red downward graph lines, papers flying everywhere, sparks and chaos in a trading room, flat comic illustration, no numbers, no text" }
+      - { value: "Chart Avalanche", weight: 6, prompt: "a detailed background of a mountain built from red descending bar charts with an avalanche of gold coins tumbling down, dust and motion, flat comic illustration, no text" }
+      - { value: "ETH Storm", weight: 6, prompt: "a detailed background of a dark thunderstorm raining glowing blue diamond crystals over a flooded street, lightning bolts and heavy clouds, flat comic illustration, no text" }
+      - { value: "Bear Wasteland", weight: 6, prompt: "a detailed background of a desolate cracked desert at blood-red dusk, dead bare trees, and a huge menacing red bear silhouette on the horizon, flat comic illustration, no text" }
+      - { value: "Casino Ruin", weight: 5, prompt: "a detailed background of a trashed neon casino interior, broken slot machines, scattered poker chips and playing cards, drifting smoke, flat comic illustration, no text" }
+      - { value: "Money Printer Hell", weight: 5, prompt: "a detailed background of a dystopian factory of giant money printers spewing blank white paper, pipes, gears and a red warning glow, steam, flat comic illustration, no text" }
+      - { value: "Degen Trenches", weight: 5, prompt: "a detailed background of a dark underground bunker lit by monitor glow, tangled cables, scattered energy-drink cans and pizza boxes, flat comic illustration, no text" }
+      - { value: "Underwater Rekt", weight: 4, prompt: "a detailed background of a deep-sea scene sinking among debris and bubbles, a sunken sports car on the seabed, eerie fish and shafts of light, flat comic illustration, no text" }
+      - { value: "Rekt Jail", weight: 3, prompt: "a detailed background of a grimy prison cell with thick iron bars, a tiny barred window and cracked concrete walls, flat comic illustration, no text" }
+      # rares — chase backgrounds
+      - { value: "Vaporwave Dump", weight: 2.5, prompt: "a detailed background of a retro vaporwave sunset with a neon grid floor glitching and cracking apart, palm trees, pink and purple with red glitch streaks, flat comic illustration, no text" }
+      - { value: "Cosmic Liquidation", weight: 1.5, prompt: "a detailed background of outer space with a cracking exploding red planet, a swirling galaxy, a meteor shower and stars, epic flat comic illustration, no text" }
+      - { value: "Heavens Exit", weight: 1.2, prompt: "a detailed background of a dreamy sky of soft clouds with golden light beams and a glowing stairway ascending, faint halo glow, serene flat comic illustration, no text" }
+      - { value: "Golden Bull Trap", weight: 0.8, prompt: "a detailed background of a deceptive golden sunrise over a cliff edge crumbling into the void, warm gold light and falling rocks, flat comic illustration, no text" }
+      - { value: "Black Hole Dump", weight: 0.5, prompt: "a detailed background of a swirling black hole vortex pulling coins, charts and debris inward into darkness, a glowing accretion ring, epic flat comic illustration, no text" }
+
+  - name: Fur
+    weights:
+      - { value: "Classic Cream", weight: 30, prompt: "cream and tan fur with a paler muzzle" }
+      - { value: "Golden", weight: 18, prompt: "warm golden-retriever fur" }
+      - { value: "Ash Grey", weight: 14, prompt: "flat ash-grey fur, scruffy chin" }
+      - { value: "Chocolate", weight: 12, prompt: "deep chocolate-brown fur" }
+      - { value: "Black Lab", weight: 10, prompt: "near-black fur with a cream nose highlight" }
+      - { value: "Patchy Mutt", weight: 8, prompt: "two-tone patchy hand-painted fur" }
+      - { value: "Albino White", weight: 5, prompt: "flat white fur with pink inner ears" }
+      - { value: "Blue Merle", weight: 2, prompt: "grey-blue fur with hand-dotted speckles" }
+      - { value: "Zombie Green", weight: 0.8, prompt: "sickly green fur with a stitched seam" }
+      - { value: "Solid Gold", weight: 0.2, prompt: "flat metallic gold fur" }
+
+  - name: Eyes
+    weights:
+      - { value: "Tired Degen", weight: 28, prompt: "half-closed droopy red-rimmed tired eyes" }
+      - { value: "Bloodshot", weight: 16, prompt: "wide bloodshot eyes with scribbled red veins" }
+      - { value: "Dead Inside", weight: 12, prompt: "dead X-shaped inked eyes" }
+      - { value: "Sleepy", weight: 11, prompt: "nearly shut sleepy eyes, one lazy lid" }
+      - { value: "Side Eye", weight: 9, prompt: "suspicious side-eye, pupils to one side" }
+      - { value: "Teary", weight: 7, prompt: "glossy teary eyes with one drawn tear" }
+      - { value: "Money Eyes", weight: 6, prompt: "dollar-and-coin shaped pupils" }
+      - { value: "Cope Wide", weight: 5, prompt: "bugged-out wide panic eyes" }
+      - { value: "Laser Eyes", weight: 3, prompt: "flat red laser-beam eyes, no glow blur" }
+      - { value: "Hypno Spiral", weight: 2, prompt: "hand-spiralled hypnotic swirl eyes" }
+      - { value: "Zen Closed", weight: 1, prompt: "calm closed arc eyes" }
+
+  - name: Mouth
+    weights:
+      - { value: "Cigarette", weight: 26, prompt: "a thin white cigarette with an ash tip and a doodled smoke wisp in the mouth" }
+      - { value: "Cope Line", weight: 16, prompt: "a flat straight unimpressed mouth" }
+      - { value: "Cigar", weight: 12, prompt: "a fat brown cigar with a curling smoke doodle" }
+      - { value: "Tongue Out", weight: 10, prompt: "a flat pink tongue flopping out" }
+      - { value: "Gold Grillz", weight: 9, prompt: "a wide grin of flat gold teeth" }
+      - { value: "Toothpick", weight: 7, prompt: "a tiny wooden toothpick in the mouth corner" }
+      - { value: "Vape Cloud", weight: 6, prompt: "a small vape and a flat puff cloud" }
+      - { value: "Blunt", weight: 5, prompt: "a hand-rolled blunt with lazy smoke" }
+      - { value: "Bubblegum", weight: 4, prompt: "a flat pink bubblegum bubble" }
+      - { value: "Lollipop", weight: 3, prompt: "a round flat lollipop on a stick" }
+      - { value: "Pacifier", weight: 2, prompt: "an ironic baby pacifier" }
+
+  - name: Eyewear
+    weights:
+      - { value: "Shades on Forehead", weight: 30, prompt: "dark sunglasses pushed up onto the forehead" }
+      - { value: "Shades On", weight: 20, prompt: "dark flat sunglasses covering the eyes" }
+      - { value: "None", weight: 18, prompt: "" }
+      - { value: "Nerd Glasses", weight: 9, prompt: "thin-framed nerd glasses" }
+      - { value: "3D Glasses", weight: 7, prompt: "red and blue flat 3D glasses" }
+      - { value: "Eye Patch", weight: 6, prompt: "a single black eye patch with a strap" }
+      - { value: "Monocle", weight: 5, prompt: "a fancy monocle on a chain" }
+      - { value: "Ski Goggles", weight: 3, prompt: "wide tinted ski goggles" }
+      - { value: "Heart Glasses", weight: 2, prompt: "flat heart-shaped glasses" }
+
+  - name: Headwear
+    weights:
+      - { value: "None", weight: 26, prompt: "" }
+      - { value: "Beanie", weight: 14, prompt: "a slouchy knit beanie with a folded brim" }
+      - { value: "Snapback", weight: 12, prompt: "a flat-billed snapback cap" }
+      - { value: "Durag", weight: 9, prompt: "a smooth durag with tied tails" }
+      - { value: "Bucket Hat", weight: 8, prompt: "a floppy bucket hat" }
+      - { value: "Cowboy Hat", weight: 6, prompt: "a wide flat-brim cowboy hat" }
+      - { value: "Party Hat", weight: 6, prompt: "an ironic cone party hat" }
+      - { value: "Devil Horns", weight: 5, prompt: "two small red devil horns" }
+      - { value: "Halo", weight: 4, prompt: "a flat gold halo floating above the head" }
+      - { value: "Crown", weight: 3, prompt: "a chunky doodled gold crown" }
+      - { value: "Wizard Hat", weight: 2.5, prompt: "a tall droopy wizard hat" }
+      - { value: "Tin Foil Hat", weight: 2, prompt: "a crinkly silver tin-foil cone hat" }
+      - { value: "Flaming Head", weight: 1, prompt: "flat flame shapes instead of hair" }
+
+  - name: Outfit
+    weights:
+      - { value: "Black Suit", weight: 24, prompt: "a slouchy black suit with an open collar" }
+      - { value: "Pinstripe Suit", weight: 12, prompt: "a black pinstripe suit with hand-ruled stripes" }
+      - { value: "Hoodie", weight: 12, prompt: "a baggy flat hoodie with drawstrings" }
+      - { value: "Tracksuit", weight: 10, prompt: "a tracksuit with stripe tape" }
+      - { value: "Tank Top", weight: 9, prompt: "a plain ribbed tank top" }
+      - { value: "Hawaiian Shirt", weight: 7, prompt: "a loud flat floral Hawaiian shirt" }
+      - { value: "Bathrobe", weight: 7, prompt: "a tied bathrobe" }
+      - { value: "Tuxedo", weight: 6, prompt: "a sharp tuxedo with a bowtie collar" }
+      - { value: "Hazmat Suit", weight: 4, prompt: "a flat yellow hazmat suit" }
+      - { value: "Puffer Jacket", weight: 4, prompt: "a chunky segmented puffer jacket" }
+      - { value: "Straightjacket", weight: 3, prompt: "a buckled white straightjacket" }
+      - { value: "Barrel", weight: 1.8, prompt: "a wooden barrel held by straps" }
+      - { value: "Golden Suit", weight: 0.4, prompt: "a flat metallic gold suit" }
+
+  - name: Chain
+    weights:
+      - { value: "Gold Chain", weight: 26, prompt: "a chunky flat-gold link chain" }
+      - { value: "None", weight: 20, prompt: "" }
+      - { value: "Necktie", weight: 14, prompt: "a loose loud necktie" }
+      - { value: "Rope Chain", weight: 11, prompt: "a twisted thin gold rope chain" }
+      - { value: "Diamond Chain", weight: 9, prompt: "a gold chain with flat blue gem dots" }
+      - { value: "Dog Tag", weight: 8, prompt: "a metal dog tag on a ball chain" }
+      - { value: "Bowtie", weight: 6, prompt: "a flat bowtie at the collar" }
+      - { value: "Cuban Link", weight: 4, prompt: "a fat flat-gold cuban link chain" }
+      - { value: "ETH Pendant", weight: 2, prompt: "a flat diamond-shaped pendant" }
+
+  - name: Accessory
+    weights:
+      - { value: "None", weight: 34, prompt: "hands in pockets, no extra item" }
+      - { value: "Phone Red Chart", weight: 14, prompt: "holding a flat phone showing a red down-line, no numbers" }
+      - { value: "Beer", weight: 10, prompt: "holding a flat beer mug with a foam doodle" }
+      - { value: "Coffee", weight: 9, prompt: "holding a paper coffee cup with a steam squiggle" }
+      - { value: "Lighter", weight: 7, prompt: "a small flame doodle from a lighter" }
+      - { value: "Trash Bag", weight: 6, prompt: "holding a black trash bag" }
+      - { value: "Empty Briefcase", weight: 6, prompt: "holding an open empty briefcase" }
+      - { value: "Tiny Umbrella", weight: 5, prompt: "holding a tiny umbrella with hand-drawn rain dots" }
+      - { value: "Newspaper", weight: 4, prompt: "holding a folded newspaper with ink-scribble lines, no words" }
+      - { value: "Diamond Gloves", weight: 3, prompt: "wearing white diamond-hands gloves" }
+      - { value: "Balloon", weight: 1.5, prompt: "holding a single sad balloon on a string" }
+      - { value: "Hologram Coin", weight: 0.5, prompt: "a flat floating blank coin disc" }

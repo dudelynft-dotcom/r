@@ -1,0 +1,148 @@
+{
+  "_note": "Eligible collections snapshot. Edited 2026-06-23: +3 (brainrot, funkari, quirkies).",
+  "generatedAt": "2026-06-23T00:00:00Z",
+  "trending": [
+    {
+      "address": "0xbd3531da5cf5857e7cfaa92426877b022e612cf8",
+      "name": "Pudgy Penguins",
+      "image": "https://i2c.seadn.io/collection/pudgypenguins/image/f489fb69fd11886b468c0f7ff1376c/cdf489fb69fd11886b468c0f7ff1376c.png"
+    },
+    {
+      "address": "0x524cab2ec69124574082676e6f654a18df49a048",
+      "name": "Lil Pudgys",
+      "image": "https://i2c.seadn.io/collection/lilpudgys/image/9289b91d3d0cefccfe6b9c7f83f471/649289b91d3d0cefccfe6b9c7f83f471.png"
+    },
+    {
+      "address": "0x5af0d9827e0c53e4799bb226655a1de152a425a5",
+      "name": "Milady Maker",
+      "image": "https://i2c.seadn.io/collection/milady/image/d4499e2e55f5e85ead4b0eb7f7dad7/90d4499e2e55f5e85ead4b0eb7f7dad7.jpeg"
+    },
+    {
+      "address": "0x8a90cab2b38dba80c64b7734e58ee1db38b8992e",
+      "name": "Doodles",
+      "image": "https://i2c.seadn.io/collection/doodles-official/image/63a85a2900fdd4bfe8f34a444b72d3/e663a85a2900fdd4bfe8f34a444b72d3.jpeg"
+    },
+    {
+      "address": "0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b",
+      "name": "CloneX",
+      "image": "https://i2c.seadn.io/ethereum/75db99053ab444cfa0d8fb55d1f60547/2a98bfb35de339b49f3a4f0c4696c4/5c2a98bfb35de339b49f3a4f0c4696c4.png"
+    },
+    {
+      "address": "0x769272677fab02575e84945f03eca517acc544cc",
+      "name": "The Captainz",
+      "image": "https://i2c.seadn.io/collection/memelandcaptainz/image_type_logo/c089cc9b591954638c64fec58fc80b/5cc089cc9b591954638c64fec58fc80b.png"
+    }
+  ],
+  "featured": [
+    {
+      "address": "0x1a92f7381b9f03921564a437210bb9396471050c",
+      "name": "Cool Cats",
+      "image": "https://i2c.seadn.io/ethereum/aaa51fcc7e44421b8a9f54bab4269fd1/2c31f59ad9d5f4565d33e0351fa8e9/872c31f59ad9d5f4565d33e0351fa8e9.png"
+    },
+    {
+      "address": "0xe785e82358879f061bc3dcac6f0444462d4b5330",
+      "name": "World of Women",
+      "image": "https://i2c.seadn.io/admin-uploads/20e55f17e6d30cc82f8fcd35347339/e320e55f17e6d30cc82f8fcd35347339.png"
+    },
+    {
+      "address": "0x9378368ba6b85c1fba5b131b530f5f5bedf21a18",
+      "name": "VeeFriends",
+      "image": "https://i2c.seadn.io/collection/veefriends-series-2/image_type_logo/d51cdf9418d18ed7b12ae299e4f96a/b9d51cdf9418d18ed7b12ae299e4f96a.png"
+    },
+    {
+      "address": "0x34d85c9cdeb23fa97cb08333b511ac86e1c4e258",
+      "name": "Otherdeed",
+      "image": "https://i2c.seadn.io/collection/otherdeed/image/8031a7bfbb75c4777a63957828f657/028031a7bfbb75c4777a63957828f657.jpeg"
+    },
+    {
+      "address": "0x7bd29408f11d2bfc23c34f18275bbf23bb716bc7",
+      "name": "Meebits",
+      "image": "https://i2c.seadn.io/ethereum/333a4a1b74694e5b8b12d9a6983ec00d/036c8c2bed042a1588622c3173677f/2d036c8c2bed042a1588622c3173677f.png"
+    },
+    {
+      "address": "0x79fcdef22feed20eddacbb2587640e45491b757f",
+      "name": "mfers",
+      "image": "https://i2c.seadn.io/collection/mfers/image/bc27b08502e1d686f1c220d302494d/01bc27b08502e1d686f1c220d302494d.png"
+    },
+    {
+      "address": "0xbce3781ae7ca1a5e050bd9c4c77369867ebc307e",
+      "name": "goblintown",
+      "image": "https://i2c.seadn.io/ethereum/b79579575a6e46c6a2b999a8c855c3c0/fb29b9d1274b4a0a1d8592b0c8d1c7/41fb29b9d1274b4a0a1d8592b0c8d1c7.jpeg"
+    },
+    {
+      "address": "0x1cb1a5e65610aeff2551a50f76a87a7d3fb649c6",
+      "name": "CrypToadz",
+      "image": "https://i2c.seadn.io/ethereum/017770c7600c4a9aa235e7a10f49e092/5527bc461fe26e3820635ec950826c/1f5527bc461fe26e3820635ec950826c.gif"
+    },
+    {
+      "address": "0x364c828ee171616a39897688a831c2499ad972ec",
+      "name": "Sappy Seals",
+      "image": "https://i2c.seadn.io/collection/sappy-seals/image/570389cac190891fea96fe285cbf01/11570389cac190891fea96fe285cbf01.png"
+    },
+    {
+      "address": "0x44912c24cf69f41a211c8b9438b8517eeab27f93",
+      "name": "R3ORDR",
+      "image": "https://i2c.seadn.io/collection/R3ORDR/image_type_logo/80be6d179bdd829b19a7bb40980b20/bb80be6d179bdd829b19a7bb40980b20.png"
+    },
+    {
+      "address": "0x832233ddb7bcffd0ed53127dd6be3f1aa5845108",
+      "name": "Slonks",
+      "image": "https://i2c.seadn.io/collection/slonks/image_type_logo/be619091b16480f1a755f3d107a0ff/e9be619091b16480f1a755f3d107a0ff.png"
+    },
+    {
+      "address": "0xa2a6063b910fc7a7a286196f6c9b62b2797fa0ae",
+      "name": "Non Playable Character",
+      "image": "https://i2c.seadn.io/collection/non-playable-character-551218477/image_type_logo/870a9e633d90cd808b85095b16b6c5/da870a9e633d90cd808b85095b16b6c5.jpeg"
+    },
+    {
+      "address": "0x2c75da46e130822cf08daeb0e917d375ece1f5a8",
+      "name": "ok guy",
+      "image": "https://i2c.seadn.io/collection/ok-guy/image_type_logo/644f8772348959e6118f4785f2ed04/b1644f8772348959e6118f4785f2ed04.jpeg"
+    },
+    {
+      "address": "0xd774557b647330c91bf44cfeab205095f7e6c367",
+      "name": "Nakamigos",
+      "image": "https://i2c.seadn.io/ethereum/79d749801e0d4a2fa3ddd4ca31a8cd05/19b033c453fe36c5d9e2ac451379a7/1619b033c453fe36c5d9e2ac451379a7.png"
+    },
+    {
+      "address": "0x9eb6e2025b64f340691e424b7fe7022ffde12438",
+      "name": "NORMIES",
+      "image": "https://i2c.seadn.io/collection/normies/image_type_logo/87d9f7ce85600c5b85a2fb96f430e7/a687d9f7ce85600c5b85a2fb96f430e7.jpeg"
+    },
+    {
+      "address": "0xb1a3b92e35e8a8c34b9f5e4e918c49421331d269",
+      "name": "PâŠ™RTRâˆ†ITS",
+      "image": "https://i2c.seadn.io/collection/portraitsbycem/image_type_logo/4a529a6eb1b3359a94a92833505a21/9c4a529a6eb1b3359a94a92833505a21.gif"
+    },
+    {
+      "address": "0xfba5880244850d89a91479a01bb8d1b678cd79fe",
+      "name": "TROLLS",
+      "image": "https://i2c.seadn.io/collection/trollsoneth/image_type_logo/8200a999f4ba780e876c8c8ff340b5/4d8200a999f4ba780e876c8c8ff340b5.jpeg"
+    },
+    {
+      "address": "0x4edc15b9a7b74da4c504ce195c6a07650f86b5e0",
+      "name": "cow's",
+      "image": "https://i2c.seadn.io/collection/cows-642580334/image_type_logo/d0df19558b9b2b663b7a599be2b886/80d0df19558b9b2b663b7a599be2b886.gif"
+    },
+    {
+      "address": "0x52f7ca34f44a1d22f470253a06af5110c7cfa05b",
+      "name": "Blupets",
+      "image": "https://i2c.seadn.io/collection/blupets/image_type_logo/5ee9766102e73628db3443c4b54a0f/9a5ee9766102e73628db3443c4b54a0f.png"
+    },
+    {
+      "address": "0x38793a3fdfd098e820ddf59706280681354341fc",
+      "name": "BRAINROT",
+      "image": "https://i2c.seadn.io/collection/brainrot-323059976/image_type_logo/72b2033616254de7c6cac6c5bbcb67/9072b2033616254de7c6cac6c5bbcb67.png"
+    },
+    {
+      "address": "0x1fafd33d882e1c275c61066019a23c1999b5006e",
+      "name": "Funkari",
+      "image": "https://i2c.seadn.io/ethereum/0200e9a82f0249d8a0f6ae71bbfdd94a/289d6cbd82c1ac935da1909ead068b/6b289d6cbd82c1ac935da1909ead068b.jpeg"
+    },
+    {
+      "address": "0xd4b7d9bb20fa20ddada9ecef8a7355ca983cccb1",
+      "name": "Quirkies",
+      "image": "https://i2c.seadn.io/collection/quirkiesoriginals/image_type_logo/30dd6aec41f4b309557f00e8e6228f/a930dd6aec41f4b309557f00e8e6228f.jpeg"
+    }
+  ]
+}

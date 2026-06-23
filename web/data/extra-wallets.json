@@ -1,0 +1,4 @@
+{
+  "_note": "Supporter wallets added manually (e.g. from X). These are always on the allowlist, in addition to holders of the eligible collections. Paste lowercase 0x addresses into the array below.",
+  "wallets": []
+}

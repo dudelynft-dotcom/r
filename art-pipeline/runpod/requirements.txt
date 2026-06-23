@@ -1,0 +1,12 @@
+# RunPod GPU render deps (FLUX + ControlNet + LoRA). Install torch matching the
+# pod's CUDA first (most RunPod PyTorch templates already have torch).
+diffusers>=0.31.0
+transformers>=4.44.0
+accelerate>=0.33.0
+peft>=0.12.0
+safetensors>=0.4.3
+sentencepiece>=0.2.0
+protobuf>=4.25.0
+opencv-python-headless>=4.9.0
+Pillow>=10.0
+huggingface_hub>=0.24.0

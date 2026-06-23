@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-pixel: "Press Start 2P", "JetBrains Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-robark-black text-robark-fog antialiased;
+}
+
+::selection {
+  background: #d64a2f;
+  color: #0a0a0b;
+}
+
+img {
+  image-rendering: pixelated;
+}
+
+/* slim mono scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0a0a0b; }
+::-webkit-scrollbar-thumb { background: #2a2a30; border: 2px solid #0a0a0b; }
+::-webkit-scrollbar-thumb:hover { background: #d64a2f; }
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
+
+  .btn { @apply inline-flex items-center justify-center gap-2 px-5 py-3 text-[13px] font-semibold tracking-wide transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-rust { @apply btn bg-robark-rust text-robark-black hover:bg-robark-ember active:translate-y-px; }
+  .btn-line { @apply btn border border-robark-line bg-transparent text-robark-fog hover:border-robark-soft hover:text-robark-white; }
+
+  /* hard pixel-ish corners everywhere */
+  .btn, .card, .chip, .panel { border-radius: 2px; }
+
+  .card { @apply border border-robark-line bg-robark-ink; }
+  .panel { @apply border border-robark-line bg-robark-panel; }
+
+  .chip { @apply inline-flex items-center gap-2 border border-robark-line bg-robark-ink px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.1em] text-robark-soft; }
+
+  /* segmented status ticker — replaces generic badge pills */
+  .ticker { @apply inline-flex flex-wrap items-stretch border-2 border-robark-line bg-robark-black font-mono text-[11px] uppercase; }
+  .ticker > * { @apply flex items-center gap-1.5 px-3 py-2; }
+  .ticker > * + * { @apply border-l border-robark-line; }
+
+  /* section label as a code comment — terminal aesthetic, not a generic eyebrow */
+  .eyebrow { @apply font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-robark-rust; }
+  .eyebrow::before { content: "// "; white-space: pre; }
+
+  /* terminal window frame */
+  .win { @apply border-2 border-robark-line bg-robark-ink; }
+  .win-bar { @apply flex items-center justify-between gap-3 border-b-2 border-robark-line bg-robark-black px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-robark-mute; }
+
+  /* blinking block cursor */
+  .cursor { @apply ml-1 inline-block w-[0.5em] animate-blink bg-robark-rust align-baseline; height: 0.85em; }
+
+  .hairline { @apply border-t border-robark-line; }
+
+  /* pixel frame for dog tiles */
+  .tile { @apply relative overflow-hidden border border-robark-line bg-robark-cream; }
+  .tile img { @apply block h-full w-full; }
+}
+
+/* faint scanline / film for premium tech feel (very subtle) */
+.scanlines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(255,255,255,0.018) 0 1px, transparent 1px 3px);
+}

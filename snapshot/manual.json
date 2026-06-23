@@ -1,0 +1,25 @@
+{
+  "_note": "Manual curation applied on top of (or instead of) the OpenSea top-collections pull. Keeps the eligible list stable across re-runs.",
+  "addSlugs": [
+    "r3ordr",
+    "slonks",
+    "npc-on-chain",
+    "ok-guy",
+    "nakamigos",
+    "normies",
+    "portraitsbycem",
+    "trollsoneth",
+    "cowsbyakc",
+    "blupets",
+    "brainrot-323059976",
+    "funkari-nft",
+    "quirkiesoriginals"
+  ],
+  "removeNames": [
+    "Bored Ape Yacht Club",
+    "Mutant Ape Yacht Club",
+    "Azuki",
+    "Moonbirds",
+    "Beanz"
+  ]
+}

@@ -1,0 +1,10 @@
+# Background-only ROBARK pipeline (CPU; image gen is on fal.ai's GPUs)
+PyYAML>=6.0
+Pillow>=10.0
+
+# Character isolation from a flat master (already done once via OpenCV GrabCut)
+opencv-python-headless>=4.9
+numpy>=1.26
+
+# Optional no-text OCR guard (also needs the tesseract binary on PATH)
+# pytesseract>=0.3.10

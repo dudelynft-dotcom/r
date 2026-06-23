@@ -1,0 +1,110 @@
+# ROBARK traits — tuned to the FINAL structure (art-previews/FINAL/).
+# Generation keeps the FINAL pose/composition (img2img @0.85) and swaps these
+# elements per token. Every prompt forbids text. `prompt` = how the element is
+# rendered in the SAME pose.
+
+collection:
+  name: "ROBARK"
+  size: 5555
+  # constant signature kept on every piece
+  constant: "a gold chain necklace"
+
+layers:
+  - name: Fur
+    weights:
+      - { value: "White", weight: 24, prompt: "white fur with pink inner ears" }
+      - { value: "Golden", weight: 18, prompt: "golden tan fur" }
+      - { value: "Grey", weight: 14, prompt: "grey fur" }
+      - { value: "Chocolate", weight: 12, prompt: "chocolate brown fur" }
+      - { value: "Black", weight: 9, prompt: "black fur with a cream muzzle" }
+      - { value: "Cream", weight: 9, prompt: "cream beige fur" }
+      - { value: "Zombie Green", weight: 5, prompt: "sickly zombie-green fur" }
+      - { value: "Blue Merle", weight: 4, prompt: "blue-grey merle fur with speckles" }
+      - { value: "Pink", weight: 3, prompt: "pastel pink fur" }
+      - { value: "Solid Gold", weight: 2, prompt: "shiny metallic gold fur" }
+
+  - name: Clothing
+    weights:
+      - { value: "Red Hoodie", weight: 16, prompt: "a red hoodie with drawstrings" }
+      - { value: "Black Suit", weight: 13, prompt: "a sharp black suit and tie" }
+      - { value: "Navy Suit", weight: 10, prompt: "a navy pinstripe suit" }
+      - { value: "Varsity Jacket", weight: 10, prompt: "a plain blue varsity jacket, no letters" }
+      - { value: "Tracksuit", weight: 10, prompt: "a striped tracksuit jacket" }
+      - { value: "Denim Jacket", weight: 9, prompt: "a blue denim jacket" }
+      - { value: "Puffer", weight: 8, prompt: "a chunky puffer jacket" }
+      - { value: "Hoodie Grey", weight: 7, prompt: "a grey zip hoodie" }
+      - { value: "Hawaiian", weight: 6, prompt: "a flat-pattern floral hawaiian shirt" }
+      - { value: "Tuxedo", weight: 5, prompt: "a black tuxedo with a bowtie" }
+      - { value: "Hazmat", weight: 3, prompt: "a yellow hazmat suit" }
+      - { value: "Golden Suit", weight: 2, prompt: "a shiny gold suit" }
+
+  - name: Headwear
+    weights:
+      - { value: "None", weight: 28, prompt: "no hat" }
+      - { value: "Red Cap", weight: 13, prompt: "a red baseball cap" }
+      - { value: "Beanie", weight: 12, prompt: "a knit beanie" }
+      - { value: "Durag", weight: 9, prompt: "a smooth durag" }
+      - { value: "Bucket Hat", weight: 8, prompt: "a floppy bucket hat" }
+      - { value: "Headphones", weight: 7, prompt: "chunky headphones" }
+      - { value: "Cowboy Hat", weight: 6, prompt: "a wide cowboy hat" }
+      - { value: "Party Hat", weight: 5, prompt: "a cone party hat" }
+      - { value: "Crown", weight: 4, prompt: "a small gold crown" }
+      - { value: "Halo", weight: 3, prompt: "a glowing halo" }
+      - { value: "Devil Horns", weight: 3, prompt: "small red devil horns" }
+      - { value: "Flaming Head", weight: 2, prompt: "flames for hair" }
+
+  - name: Eyewear
+    weights:
+      - { value: "None", weight: 34, prompt: "" }
+      - { value: "Dark Shades", weight: 20, prompt: "dark sunglasses" }
+      - { value: "Shades Up", weight: 12, prompt: "sunglasses pushed up on the head" }
+      - { value: "Nerd Glasses", weight: 10, prompt: "round nerd glasses" }
+      - { value: "3D Glasses", weight: 8, prompt: "red and blue 3d glasses" }
+      - { value: "Eye Patch", weight: 7, prompt: "a black eye patch" }
+      - { value: "Monocle", weight: 5, prompt: "a fancy monocle" }
+      - { value: "VR Headset", weight: 4, prompt: "a VR headset" }
+
+  - name: Mouth
+    weights:
+      - { value: "Cigarette", weight: 30, prompt: "a cigarette with a curl of smoke in his mouth" }
+      - { value: "Cigar", weight: 16, prompt: "a fat cigar with smoke in his mouth" }
+      - { value: "Blunt", weight: 12, prompt: "a blunt with smoke in his mouth" }
+      - { value: "Toothpick", weight: 10, prompt: "a toothpick in his mouth" }
+      - { value: "Vape", weight: 9, prompt: "a vape with a puff cloud" }
+      - { value: "Pipe", weight: 8, prompt: "a smoking pipe in his mouth" }
+      - { value: "Lollipop", weight: 8, prompt: "a lollipop in his mouth" }
+      - { value: "Bubblegum", weight: 7, prompt: "blowing a pink bubblegum bubble" }
+
+  - name: Hand
+    weights:
+      - { value: "Coffee", weight: 14, prompt: "a paper coffee cup" }
+      - { value: "Beer", weight: 13, prompt: "a can of beer" }
+      - { value: "Energy Drink", weight: 11, prompt: "an energy drink can" }
+      - { value: "Phone", weight: 11, prompt: "a smartphone showing a red downward chart, no numbers" }
+      - { value: "Money Stack", weight: 10, prompt: "a fat stack of cash" }
+      - { value: "Cocktail", weight: 8, prompt: "a fancy cocktail glass" }
+      - { value: "Bone", weight: 7, prompt: "a big dog bone" }
+      - { value: "Pizza", weight: 6, prompt: "a slice of pizza" }
+      - { value: "Controller", weight: 5, prompt: "a game controller" }
+      - { value: "Gold Bar", weight: 4, prompt: "a shiny gold bar" }
+      - { value: "Diamond", weight: 3, prompt: "a giant blue diamond" }
+      - { value: "Microphone", weight: 3, prompt: "a microphone" }
+      - { value: "Empty Paw", weight: 5, prompt: "nothing, an open empty paw raised" }
+
+  - name: Background
+    weights:
+      - { value: "Plain Color", weight: 10, prompt: "a plain flat pastel studio background" }
+      - { value: "Degen Room", weight: 12, prompt: "a detailed dim degen room with a glowing monitor and clutter" }
+      - { value: "Dim Bar", weight: 10, prompt: "a detailed dim neon bar with bottles" }
+      - { value: "Office Desk", weight: 9, prompt: "a detailed office with a desk and a screen" }
+      - { value: "Casino Floor", weight: 8, prompt: "a detailed neon casino floor with chips" }
+      - { value: "Neon City Night", weight: 8, prompt: "a detailed neon city skyline at night" }
+      - { value: "Trading Desk", weight: 8, prompt: "a detailed trading desk with red candle charts on screens, no numbers" }
+      - { value: "Money Rain", weight: 6, prompt: "a detailed scene of cash raining down" }
+      - { value: "Rooftop Night", weight: 6, prompt: "a detailed rooftop at night under stars" }
+      - { value: "Sunset Beach", weight: 5, prompt: "a detailed sunset beach with palm trees" }
+      - { value: "Graveyard Night", weight: 4, prompt: "a detailed spooky graveyard at night" }
+      - { value: "Outer Space", weight: 4, prompt: "a detailed outer space scene with planets and stars" }
+      - { value: "Vaporwave", weight: 3, prompt: "a detailed vaporwave grid sunset, pink and purple" }
+      - { value: "Heaven Clouds", weight: 2, prompt: "a detailed dreamy sky of golden clouds" }
+      - { value: "Hell Flames", weight: 1.5, prompt: "a detailed background of red flames and dark smoke" }

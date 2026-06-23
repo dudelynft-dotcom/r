@@ -1,0 +1,100 @@
+{
+  "name": "ROBARK",
+  "description": "ROBARK. 5,555 pixel degens who survived the crash. One dog, 5,555 bad days.",
+  "size": 5555,
+  "scale": 25,
+  "layers": [
+    {
+      "name": "Background", "folder": "background",
+      "options": [
+        { "file": "navy.png", "name": "Navy", "weight": 28 },
+        { "file": "slate.png", "name": "Slate", "weight": 16 },
+        { "file": "blood.png", "name": "Blood", "weight": 12 },
+        { "file": "forest.png", "name": "Forest", "weight": 10 },
+        { "file": "purple.png", "name": "Purple", "weight": 10 },
+        { "file": "sky.png", "name": "Sky", "weight": 9 },
+        { "file": "mustard.png", "name": "Mustard", "weight": 8 },
+        { "file": "pink.png", "name": "Pink", "weight": 7 }
+      ]
+    },
+    {
+      "name": "Fur", "folder": "skin",
+      "options": [
+        { "file": "cream.png", "name": "Cream", "weight": 28 },
+        { "file": "golden.png", "name": "Golden", "weight": 20 },
+        { "file": "grey.png", "name": "Grey", "weight": 14 },
+        { "file": "choco.png", "name": "Chocolate", "weight": 12 },
+        { "file": "black.png", "name": "Black", "weight": 9 },
+        { "file": "white.png", "name": "White", "weight": 8 },
+        { "file": "zombie.png", "name": "Zombie", "weight": 5 },
+        { "file": "blue.png", "name": "Blue Merle", "weight": 3 },
+        { "file": "gold.png", "name": "Solid Gold", "weight": 1 }
+      ]
+    },
+    {
+      "name": "Outfit", "folder": "outfit",
+      "options": [
+        { "file": "hoodie_red.png", "name": "Red Hoodie", "weight": 20 },
+        { "file": "hoodie_black.png", "name": "Black Hoodie", "weight": 18 },
+        { "file": "hoodie_blue.png", "name": "Blue Hoodie", "weight": 14 },
+        { "file": "hoodie_grey.png", "name": "Grey Hoodie", "weight": 12 },
+        { "file": "hoodie_green.png", "name": "Green Hoodie", "weight": 10 },
+        { "file": "tracksuit.png", "name": "Tracksuit", "weight": 12 },
+        { "file": "suit.png", "name": "Suit", "weight": 9 },
+        { "file": "bare.png", "name": "Bare", "weight": 5 }
+      ]
+    },
+    {
+      "name": "Headwear", "folder": "hair",
+      "options": [
+        { "file": "none.png", "name": "None", "weight": 26 },
+        { "file": "cap.png", "name": "Cap", "weight": 15 },
+        { "file": "beanie.png", "name": "Beanie", "weight": 13 },
+        { "file": "durag.png", "name": "Durag", "weight": 10 },
+        { "file": "cowboy.png", "name": "Cowboy Hat", "weight": 8 },
+        { "file": "mohawk.png", "name": "Mohawk", "weight": 8 },
+        { "file": "tophat.png", "name": "Top Hat", "weight": 7 },
+        { "file": "crown.png", "name": "Crown", "weight": 5 },
+        { "file": "halo.png", "name": "Halo", "weight": 4 },
+        { "file": "horns.png", "name": "Devil Horns", "weight": 4 }
+      ]
+    },
+    {
+      "name": "Eyes", "folder": "eyes",
+      "options": [
+        { "file": "shades_black.png", "name": "Black Shades", "weight": 24 },
+        { "file": "normal.png", "name": "Normal", "weight": 18 },
+        { "file": "shades_purple.png", "name": "Purple Shades", "weight": 12 },
+        { "file": "aviators.png", "name": "Aviators", "weight": 10 },
+        { "file": "shades_red.png", "name": "Red Shades", "weight": 9 },
+        { "file": "glasses_3d.png", "name": "3D Glasses", "weight": 8 },
+        { "file": "eyepatch.png", "name": "Eyepatch", "weight": 7 },
+        { "file": "vr.png", "name": "VR Goggles", "weight": 6 },
+        { "file": "laser.png", "name": "Laser Eyes", "weight": 4 },
+        { "file": "money.png", "name": "Money Eyes", "weight": 2 }
+      ]
+    },
+    {
+      "name": "Mouth", "folder": "mouth",
+      "options": [
+        { "file": "cigarette.png", "name": "Cigarette", "weight": 30 },
+        { "file": "cigar.png", "name": "Cigar", "weight": 16 },
+        { "file": "blunt.png", "name": "Blunt", "weight": 12 },
+        { "file": "smile.png", "name": "Smile", "weight": 12 },
+        { "file": "tongue.png", "name": "Tongue Out", "weight": 10 },
+        { "file": "pipe.png", "name": "Pipe", "weight": 8 },
+        { "file": "grin_gold.png", "name": "Gold Grin", "weight": 8 },
+        { "file": "neutral.png", "name": "Neutral", "weight": 4 }
+      ]
+    },
+    {
+      "name": "Chain", "folder": "accessory",
+      "options": [
+        { "file": "none.png", "name": "None", "weight": 42 },
+        { "file": "gold_chain.png", "name": "Gold Chain", "weight": 30 },
+        { "file": "diamond_chain.png", "name": "Diamond Chain", "weight": 16 },
+        { "file": "earring.png", "name": "Earring", "weight": 12 }
+      ]
+    }
+  ]
+}

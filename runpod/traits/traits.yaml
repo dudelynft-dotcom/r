@@ -1,0 +1,97 @@
+# ROBARK trait taxonomy
+# -----------------------------------------------------------------------------
+# Each layer has weighted options. Weights are relative (not required to sum to
+# 100) — the sampler normalises them. `prompt` fragments are injected into the
+# Stable Diffusion prompt so the GPU renders the chosen trait. `none` options
+# (empty prompt) let a layer be absent on some tokens.
+#
+# Theme is locked BLUE: every background is a blue, matching the demo art.
+# -----------------------------------------------------------------------------
+
+collection:
+  name: "ROBARK"
+  size: 10000
+  # base style applied to every token
+  base_prompt: >-
+    pixel art, 32x32 sprite, crisp pixels, side-profile shiba inu dog standing,
+    clean outline, limited palette, retro 8-bit game art, centered, vibrant
+  base_negative: >-
+    blurry, antialiased, smooth gradient, 3d render, photo, jpeg artifacts,
+    text, watermark, signature, extra limbs, deformed, realistic
+
+layers:
+  - name: Background
+    weights:
+      - { value: "Cobalt", weight: 30, prompt: "solid cobalt blue background #1e3aff" }
+      - { value: "Royal", weight: 22, prompt: "solid royal blue background #1d4ed8" }
+      - { value: "Electric", weight: 18, prompt: "solid electric blue background #2563eb" }
+      - { value: "Navy", weight: 12, prompt: "deep navy blue background #0a1444" }
+      - { value: "Sky Grid", weight: 8, prompt: "blue background with subtle pixel grid lines" }
+      - { value: "Ice Gradient", weight: 6, prompt: "blue gradient background, light blue to deep blue" }
+      - { value: "Stormy", weight: 3, prompt: "dark stormy blue background, pixel clouds" }
+      - { value: "Holographic Blue", weight: 1, prompt: "iridescent holographic blue background, rare" }
+
+  - name: Fur
+    weights:
+      - { value: "Classic Orange", weight: 34, prompt: "orange shiba fur, cream belly" }
+      - { value: "Cream", weight: 20, prompt: "cream white shiba fur" }
+      - { value: "Sesame", weight: 16, prompt: "sesame brown shiba fur" }
+      - { value: "Black & Tan", weight: 12, prompt: "black and tan shiba fur" }
+      - { value: "Ghost White", weight: 8, prompt: "pure white ghostly shiba fur" }
+      - { value: "Blue Husky", weight: 6, prompt: "blue-grey husky-tinted fur, blue eyes" }
+      - { value: "Frost", weight: 3, prompt: "icy frost-blue shiba fur, sparkles" }
+      - { value: "Gold", weight: 1, prompt: "shimmering golden metallic fur, ultra rare" }
+
+  - name: Eyes
+    weights:
+      - { value: "Default", weight: 40, prompt: "calm black dot eyes" }
+      - { value: "Determined", weight: 20, prompt: "determined focused eyes" }
+      - { value: "Sleepy", weight: 14, prompt: "sleepy half-closed eyes" }
+      - { value: "Wink", weight: 9, prompt: "winking one eye" }
+      - { value: "Blue Laser", weight: 6, prompt: "glowing blue laser eyes" }
+      - { value: "3D Glasses", weight: 5, prompt: "wearing 3d cyan-blue glasses" }
+      - { value: "Pixel Shades", weight: 4, prompt: "black pixel sunglasses" }
+      - { value: "Diamond Eyes", weight: 2, prompt: "sparkling blue diamond eyes, rare" }
+
+  - name: Mouth
+    weights:
+      - { value: "Smile", weight: 38, prompt: "happy smile" }
+      - { value: "Tongue Out", weight: 24, prompt: "tongue sticking out" }
+      - { value: "Bork", weight: 16, prompt: "open mouth barking" }
+      - { value: "Stoic", weight: 12, prompt: "neutral stoic mouth" }
+      - { value: "Bone", weight: 7, prompt: "holding a white bone in mouth" }
+      - { value: "Cigar", weight: 3, prompt: "chewing a tiny cigar" }
+
+  - name: Headwear
+    weights:
+      - { value: "None", weight: 34, prompt: "" }
+      - { value: "Beanie", weight: 16, prompt: "blue knit beanie" }
+      - { value: "Cap", weight: 14, prompt: "blue baseball cap" }
+      - { value: "Halo", weight: 8, prompt: "glowing blue halo" }
+      - { value: "Crown", weight: 7, prompt: "small gold crown" }
+      - { value: "Headphones", weight: 7, prompt: "blue pixel headphones" }
+      - { value: "Wizard Hat", weight: 6, prompt: "starry blue wizard hat" }
+      - { value: "Viking Helm", weight: 4, prompt: "horned viking helmet" }
+      - { value: "Captain", weight: 3, prompt: "navy captain hat" }
+      - { value: "Laser Mohawk", weight: 1, prompt: "neon blue laser mohawk, ultra rare" }
+
+  - name: Collar
+    weights:
+      - { value: "Red Classic", weight: 40, prompt: "red collar" }
+      - { value: "Blue Tag", weight: 24, prompt: "blue collar with bone tag" }
+      - { value: "Spiked", weight: 14, prompt: "spiked leather collar" }
+      - { value: "Gold Chain", weight: 12, prompt: "thick gold chain necklace" }
+      - { value: "Diamond Chain", weight: 7, prompt: "icy diamond chain, blue gems" }
+      - { value: "Bowtie", weight: 3, prompt: "tiny blue bowtie" }
+
+  - name: Accessory
+    weights:
+      - { value: "None", weight: 50, prompt: "" }
+      - { value: "Skateboard", weight: 12, prompt: "blue skateboard under paw" }
+      - { value: "Balloon", weight: 10, prompt: "holding a blue balloon" }
+      - { value: "Coin", weight: 9, prompt: "ethereum coin floating nearby" }
+      - { value: "Cape", weight: 7, prompt: "flowing blue superhero cape" }
+      - { value: "Jetpack", weight: 5, prompt: "blue pixel jetpack" }
+      - { value: "Sword", weight: 4, prompt: "glowing blue pixel sword" }
+      - { value: "Angel Wings", weight: 2, prompt: "white feathered wings" }
+      - { value: "Hologram Pet", weight: 1, prompt: "tiny floating hologram shiba companion, ultra rare" }

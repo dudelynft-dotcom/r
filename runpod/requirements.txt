@@ -1,0 +1,14 @@
+# Trait engine + metadata (CPU only — run anywhere)
+PyYAML>=6.0
+
+# Dedup pass
+Pillow>=10.0
+ImageHash>=4.3
+
+# Optional: IPFS pinning helper
+requests>=2.31
+
+# NOTE: Stable Diffusion / ComfyUI itself is NOT installed via this file.
+# It runs on the RunPod GPU pod from the ComfyUI image. This pipeline only
+# talks to ComfyUI's HTTP API (see src/comfy_client.py), so no torch needed
+# on the machine that orchestrates generation.

@@ -1,0 +1,15 @@
+{
+  "name": "robark-snapshot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Snapshot Ethereum NFT holders and build the ROBARK allowlist + Merkle roots.",
+  "scripts": {
+    "snapshot": "node snapshot.js",
+    "merkle": "node merkle.js"
+  },
+  "dependencies": {
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.4.0"
+  }
+}
