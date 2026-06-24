@@ -24,6 +24,11 @@ export const SITE = {
 
 export const MINT_PRICE_ETH = "0.0003";
 
+// Pinned announcement tweet shown on the checker page. Update the URL to swap it.
+export const ANNOUNCEMENT = {
+  tweetUrl: "https://x.com/robark_io/status/2069578100644413930",
+} as const;
+
 export const COLLECTION = {
   totalSupply: 5_555,
   // mint configuration — wire to the real contract when deployed

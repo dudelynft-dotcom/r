@@ -6,6 +6,7 @@ import type { CheckResult } from "@/lib/eligibility";
 import { ELIGIBLE_COLLECTIONS, SNAPSHOT_AT } from "@/lib/eligibility";
 import { ResultCard } from "@/components/ResultCard";
 import { CollectionCard } from "@/components/CollectionCard";
+import { TweetNotice } from "@/components/TweetNotice";
 import { SITE } from "@/lib/config";
 
 const SNAP_DATE = SNAPSHOT_AT
@@ -59,6 +60,7 @@ export default function CheckerPage() {
   return (
     <div className="relative">
       <div className="container-x py-14 lg:py-20">
+        <TweetNotice />
         <div className="mx-auto max-w-2xl text-center">
           <span className="ticker mx-auto w-fit">
             <span className="text-robark-green"><span className="h-2 w-2 bg-robark-green" /> Snapshot taken</span>
