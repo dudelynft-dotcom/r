@@ -25,10 +25,10 @@ export const SITE = {
 export const MINT_PRICE_ETH = "0.0003";
 
 export const ANNOUNCEMENT = {
-  // Shown as the "@robark_io just tweeted" notification on the checker (kept).
-  tweetUrl: "https://x.com/robark_io/status/2069578100644413930",
-  // The post users quote / like / comment on in the /whitelist tasks.
-  taskTweetUrl: "https://x.com/robark_io/status/2069774644987535540",
+  // Checker "@robark_io just tweeted" notification + the /whitelist QUOTE task.
+  tweetUrl: "https://x.com/i/status/2069578100644413930",
+  // The /whitelist LIKE + RETWEET task.
+  likeRtTweetUrl: "https://x.com/i/status/2069774644987535540",
 } as const;
 
 export const COLLECTION = {
