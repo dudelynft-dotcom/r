@@ -1,5 +1,5 @@
 import { type CheckResult, SNAPSHOT_AT } from "@/lib/eligibility";
-import { SITE, MINT_PRICE_ETH, COLLECTION } from "@/lib/config";
+import { SITE, MINT_PRICE_ETH, MINT_PRICE_PUBLIC_ETH, COLLECTION } from "@/lib/config";
 import { CollectionCard } from "./CollectionCard";
 
 const SNAP_DATE = SNAPSHOT_AT
@@ -104,7 +104,7 @@ export function ResultCard({
 
       {/* stat row: price · supply · status */}
       <div className="grid grid-cols-3 divide-x divide-robark-line border-t border-robark-line">
-        <Stat label="Mint Price" value={`${MINT_PRICE_ETH} Ξ`} />
+        <Stat label="Mint Price" value={`${eligible ? MINT_PRICE_ETH : MINT_PRICE_PUBLIC_ETH} Ξ`} accent={eligible ? aText : undefined} />
         <Stat label="Supply" value={COLLECTION.totalSupply.toLocaleString()} />
         <Stat label={eligible ? "Phase" : "Access"} value={eligible ? (tierLabel ?? "Allowlist") : "Public"} accent={aText} />
       </div>

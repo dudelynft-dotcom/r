@@ -22,7 +22,8 @@ export const SITE = {
   etherscan: "https://etherscan.io",
 } as const;
 
-export const MINT_PRICE_ETH = "0.0003";
+export const MINT_PRICE_ETH = "0.0003"; // allowlist (Tier 1 / Tier 2)
+export const MINT_PRICE_PUBLIC_ETH = "0.10"; // public stage
 
 export const ANNOUNCEMENT = {
   // Checker "@robark_io just tweeted" notification + the /whitelist QUOTE task.
@@ -56,18 +57,31 @@ export const MINT_START_ISO =
 
 export const PHASES = [
   {
-    id: "allowlist",
-    name: "Allowlist",
-    window: "0h – 12h",
-    badge: "ELIGIBLE",
-    rule: "Hold any of the eligible collections at snapshot. Check your wallet — if you hold, you're in.",
+    id: "tier1",
+    name: "Tier 1 — Allowlist",
+    badge: "TOP HOLDERS",
+    time: "Jun 29 · 09:00 UTC",
+    price: "0.0003",
+    limit: "1 / wallet",
+    rule: "Top holders (most eligible collections). Mints first.",
+  },
+  {
+    id: "tier2",
+    name: "Tier 2 — Allowlist",
+    badge: "ALLOWLIST",
+    time: "Jun 29 · 12:00 UTC",
+    price: "0.0003",
+    limit: "1 / wallet",
+    rule: "The rest of the allowlist + X supporters.",
   },
   {
     id: "public",
     name: "Public",
-    window: "12h – 24h",
     badge: "OPEN",
-    rule: "Open mint for everyone, while supply lasts.",
+    time: "Jun 29 · 15:00 UTC",
+    price: "0.10",
+    limit: "11 / wallet",
+    rule: "Open to everyone, while supply lasts. Ends Jul 1.",
   },
 ] as const;
 

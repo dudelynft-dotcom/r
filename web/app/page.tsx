@@ -201,30 +201,36 @@ export default function HomePage() {
       <section id="mint" className="container-x py-20 lg:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">The 24-Hour Degen Mint</p>
-          <h2 className="mt-3 font-display text-4xl font-bold text-robark-white sm:text-5xl">Allowlist, then public</h2>
+          <h2 className="mt-3 font-display text-4xl font-bold text-robark-white sm:text-5xl">Mint goes live June 29</h2>
           <p className="mt-4 text-robark-soft">
-            {SNAP_DATE
-              ? `The snapshot is done — taken ${SNAP_DATE} and final. Hold any eligible collection (or get added as an X supporter) and your wallet is locked on the allowlist.`
-              : "Hold any eligible collection and your wallet is on the allowlist automatically."}
+            Allowlist mints at <span className="text-robark-white">0.0003 ETH</span>, public at{" "}
+            <span className="text-robark-white">0.10 ETH</span>. Snapshot is final{SNAP_DATE ? ` — taken ${SNAP_DATE}` : ""}.
           </p>
-          {SNAP_DATE && (
-            <span className="chip mx-auto mt-5 w-fit">
-              <span className="h-1.5 w-1.5 bg-robark-green" />
-              <strong className="font-bold text-robark-white">SNAPSHOT COMPLETE · {SNAP_DATE.toUpperCase()}</strong>
-            </span>
-          )}
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-3xl gap-3 sm:grid-cols-2">
+        {/* countdown */}
+        <div className="mt-10 flex flex-col items-center">
+          <p className="eyebrow mb-3">Mint starts in</p>
+          <Countdown iso={MINT_START_ISO} />
+          <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-robark-mute">June 29, 2026 · 09:00 UTC</p>
+        </div>
+
+        {/* schedule */}
+        <div className="mx-auto mt-12 grid max-w-5xl gap-3 lg:grid-cols-3">
           {PHASES.map((p, i) => (
-            <div key={p.id} className="panel flex flex-col p-7">
+            <div key={p.id} className="panel flex flex-col p-6">
               <div className="flex items-center justify-between">
                 <span className="chip">{p.badge}</span>
-                <span className="font-mono text-4xl font-bold text-robark-line">0{i + 1}</span>
+                <span className="font-mono text-3xl font-bold text-robark-line">0{i + 1}</span>
               </div>
-              <h3 className="mt-4 font-display text-xl font-bold text-robark-white">{p.name}</h3>
-              <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-robark-rust">{p.window} of mint</p>
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-robark-soft">{p.rule}</p>
+              <h3 className="mt-4 font-display text-lg font-bold text-robark-white">{p.name}</h3>
+              <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-robark-rust">{p.time}</p>
+              <div className="mt-3 flex items-center gap-2 font-mono text-[12px]">
+                <span className="font-bold text-robark-fog">{p.price} Ξ</span>
+                <span className="text-robark-line">·</span>
+                <span className="text-robark-soft">{p.limit}</span>
+              </div>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-robark-soft">{p.rule}</p>
             </div>
           ))}
         </div>
