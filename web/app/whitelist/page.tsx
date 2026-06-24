@@ -2,18 +2,15 @@
 
 import { useMemo, useState } from "react";
 import { isAddress } from "viem";
-import { SITE, ANNOUNCEMENT, MINT_PRICE_ETH } from "@/lib/config";
+import { SITE, ANNOUNCEMENT } from "@/lib/config";
 
 const LAUNCH = ANNOUNCEMENT.taskTweetUrl;
-const TID = LAUNCH.split("/status/")[1]?.split(/[/?#]/)[0] ?? "";
 const HANDLE = SITE.twitterHandle;
 
-const followUrl = `https://x.com/intent/follow?screen_name=${HANDLE}`;
-const quoteUrl = `https://x.com/intent/post?text=${encodeURIComponent(
-  `Joining the @${HANDLE} whitelist. 5,555 pixel NFTs on Ethereum, minting June 29 at ${MINT_PRICE_ETH} ETH. #ROBARK`,
-)}&url=${encodeURIComponent(LAUNCH)}`;
-const likeUrl = `https://x.com/intent/like?tweet_id=${TID}`;
-const replyUrl = `https://x.com/intent/post?in_reply_to=${TID}`;
+// The X app swallows /intent/ links and dumps you on the home feed. Linking to
+// the actual profile + post (which the app routes correctly) is reliable on mobile.
+const followUrl = `https://x.com/${HANDLE}`; // opens the profile → tap Follow
+const postUrl = LAUNCH; // opens the launch post → like / repost→quote / reply there
 
 // capture the handle from a quote-tweet link: x.com/<handle>/status/<id>
 const TWEET_RE = /(?:x|twitter)\.com\/([^/]+)\/status\/\d+/i;
@@ -112,15 +109,17 @@ export default function WhitelistPage() {
         {/* 1 — Follow */}
         <Step n="01" title={`Follow @${HANDLE}`} done={v.follow}>
           <div className="flex flex-wrap items-center gap-3">
-            <a href={followUrl} target="_blank" rel="noreferrer" onClick={() => setFollow(true)} className="btn-rust text-[13px]">Follow on X</a>
+            <a href={followUrl} target="_blank" rel="noreferrer" onClick={() => setFollow(true)} className="btn-rust text-[13px]">Open profile</a>
             <Toggle on={v.follow} onClick={() => setFollow((s) => !s)} label="I followed" />
           </div>
+          <p className="mt-2 font-mono text-[11px] text-robark-mute">opens @{HANDLE} — tap Follow.</p>
         </Step>
 
         {/* 2 — Quote tweet (your handle is read from the link) */}
         <Step n="02" title="Quote-tweet the launch post" done={v.quote}>
           <div className="space-y-2.5">
-            <a href={quoteUrl} target="_blank" rel="noreferrer" className="btn-rust text-[13px]">Quote tweet</a>
+            <a href={postUrl} target="_blank" rel="noreferrer" className="btn-rust text-[13px]">Open post</a>
+            <p className="font-mono text-[11px] text-robark-mute">on the post: tap Repost → Quote, post it, then paste your link below.</p>
             <div className="flex items-center gap-2 border-2 border-robark-line bg-robark-black px-3 focus-within:border-robark-rust">
               <span className="font-mono text-sm text-robark-mute">↳</span>
               <input value={quote} onChange={(e) => setQuote(e.target.value)} placeholder="paste your quote-tweet link" spellCheck={false} autoComplete="off"
@@ -135,17 +134,19 @@ export default function WhitelistPage() {
         {/* 3 — Like */}
         <Step n="03" title="Like the launch post" done={v.liked}>
           <div className="flex flex-wrap items-center gap-3">
-            <a href={likeUrl} target="_blank" rel="noreferrer" onClick={() => setLiked(true)} className="btn-line text-[13px]">Open & like</a>
+            <a href={postUrl} target="_blank" rel="noreferrer" onClick={() => setLiked(true)} className="btn-line text-[13px]">Open post</a>
             <Toggle on={v.liked} onClick={() => setLiked((s) => !s)} label="I liked it" />
           </div>
+          <p className="mt-2 font-mono text-[11px] text-robark-mute">opens the post — tap the heart.</p>
         </Step>
 
         {/* 4 — Comment */}
         <Step n="04" title="Comment on the launch post" done={v.commented}>
           <div className="flex flex-wrap items-center gap-3">
-            <a href={replyUrl} target="_blank" rel="noreferrer" onClick={() => setCommented(true)} className="btn-line text-[13px]">Open & comment</a>
+            <a href={postUrl} target="_blank" rel="noreferrer" onClick={() => setCommented(true)} className="btn-line text-[13px]">Open post</a>
             <Toggle on={v.commented} onClick={() => setCommented((s) => !s)} label="I commented" />
           </div>
+          <p className="mt-2 font-mono text-[11px] text-robark-mute">opens the post — tap reply and drop a comment.</p>
         </Step>
 
         {/* 5 — Wallet */}
