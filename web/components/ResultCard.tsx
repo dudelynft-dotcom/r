@@ -9,16 +9,6 @@ const SNAP_DATE = SNAPSHOT_AT
 // X's current intent endpoint (deep-links the mobile app reliably).
 const intent = (text: string) => `https://x.com/intent/post?text=${encodeURIComponent(text)}`;
 
-function wlTweetUrl(address: string) {
-  return intent(`Requesting allowlist access for the ROBARK mint.
-
-Wallet: ${address}
-
-5,555 pixel NFTs on Ethereum. Mint June 29 at ${MINT_PRICE_ETH} ETH.
-
-@${SITE.twitterHandle} #ROBARK`);
-}
-
 function shareTweetUrl() {
   return intent(`I'm on the ROBARK allowlist and approved to mint.
 
@@ -124,10 +114,10 @@ export function ResultCard({
         {!eligible && (
           <div className="mb-5 border border-robark-line bg-robark-black p-4">
             <p className="text-sm text-robark-soft">
-              Want in anyway? Post your wallet to X and the team can add you as a supporter — the tweet&apos;s ready, just hit send.
+              Not on the snapshot? You can still earn a spot. Complete a few quick X tasks and submit your wallet to the public whitelist.
             </p>
-            <a href={wlTweetUrl(result.address)} target="_blank" rel="noreferrer" className="btn-rust mt-3 w-full sm:w-auto">
-              <XIcon /> Request whitelist on X
+            <a href="/whitelist" className="btn-rust mt-3 w-full sm:w-auto">
+              Apply for the whitelist →
             </a>
           </div>
         )}

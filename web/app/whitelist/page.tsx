@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { isAddress } from "viem";
 import { SITE, ANNOUNCEMENT, MINT_PRICE_ETH } from "@/lib/config";
 
-const LAUNCH = ANNOUNCEMENT.tweetUrl;
+const LAUNCH = ANNOUNCEMENT.taskTweetUrl;
 const TID = LAUNCH.split("/status/")[1]?.split(/[/?#]/)[0] ?? "";
 const HANDLE = SITE.twitterHandle;
 
@@ -15,7 +15,9 @@ const quoteUrl = `https://x.com/intent/post?text=${encodeURIComponent(
 const likeUrl = `https://x.com/intent/like?tweet_id=${TID}`;
 const replyUrl = `https://x.com/intent/post?in_reply_to=${TID}`;
 
-const TWEET_RE = /(?:x|twitter)\.com\/[^/]+\/status\/\d+/i;
+// capture the handle from a quote-tweet link: x.com/<handle>/status/<id>
+const TWEET_RE = /(?:x|twitter)\.com\/([^/]+)\/status\/\d+/i;
+const handleFromUrl = (url: string) => url.trim().match(TWEET_RE)?.[1]?.replace(/^@+/, "") ?? "";
 
 function Pill({ done }: { done: boolean }) {
   return (
@@ -26,7 +28,6 @@ function Pill({ done }: { done: boolean }) {
 }
 
 export default function WhitelistPage() {
-  const [xUser, setXUser] = useState("");
   const [follow, setFollow] = useState(false);
   const [quote, setQuote] = useState("");
   const [liked, setLiked] = useState(false);
@@ -37,16 +38,17 @@ export default function WhitelistPage() {
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
 
+  const xHandle = handleFromUrl(quote); // auto-derived from the quote link
+
   const v = useMemo(
     () => ({
-      user: xUser.trim().replace(/^@+/, "").length > 0,
       follow,
-      quote: TWEET_RE.test(quote.trim()),
+      quote: TWEET_RE.test(quote.trim()) && xHandle.length > 0,
       liked,
       commented,
       wallet: isAddress(wallet.trim()),
     }),
-    [xUser, follow, quote, liked, commented, wallet],
+    [follow, quote, xHandle, liked, commented, wallet],
   );
   const ready = Object.values(v).every(Boolean);
 
@@ -61,7 +63,7 @@ export default function WhitelistPage() {
       const res = await fetch("/api/whitelist", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ xUsername: xUser, quoteUrl: quote, wallet }),
+        body: JSON.stringify({ xUsername: xHandle, quoteUrl: quote, wallet }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data?.error ?? "Submission failed.");
@@ -107,25 +109,16 @@ export default function WhitelistPage() {
       </div>
 
       <div className="mx-auto mt-10 max-w-2xl space-y-3">
-        {/* 1 — X username */}
-        <Step n="01" title="Your X username" done={v.user}>
-          <div className="flex items-center gap-2 border-2 border-robark-line bg-robark-black px-3 focus-within:border-robark-rust">
-            <span className="font-mono text-sm text-robark-mute">@</span>
-            <input value={xUser} onChange={(e) => setXUser(e.target.value)} placeholder="yourhandle" spellCheck={false} autoComplete="off"
-              className="flex-1 bg-transparent py-2.5 font-mono text-sm text-robark-white outline-none placeholder:text-robark-mute" />
-          </div>
-        </Step>
-
-        {/* 2 — Follow */}
-        <Step n="02" title={`Follow @${HANDLE}`} done={v.follow}>
+        {/* 1 — Follow */}
+        <Step n="01" title={`Follow @${HANDLE}`} done={v.follow}>
           <div className="flex flex-wrap items-center gap-3">
             <a href={followUrl} target="_blank" rel="noreferrer" onClick={() => setFollow(true)} className="btn-rust text-[13px]">Follow on X</a>
             <Toggle on={v.follow} onClick={() => setFollow((s) => !s)} label="I followed" />
           </div>
         </Step>
 
-        {/* 3 — Quote tweet */}
-        <Step n="03" title="Quote-tweet the launch post" done={v.quote}>
+        {/* 2 — Quote tweet (your handle is read from the link) */}
+        <Step n="02" title="Quote-tweet the launch post" done={v.quote}>
           <div className="space-y-2.5">
             <a href={quoteUrl} target="_blank" rel="noreferrer" className="btn-rust text-[13px]">Quote tweet</a>
             <div className="flex items-center gap-2 border-2 border-robark-line bg-robark-black px-3 focus-within:border-robark-rust">
@@ -133,27 +126,30 @@ export default function WhitelistPage() {
               <input value={quote} onChange={(e) => setQuote(e.target.value)} placeholder="paste your quote-tweet link" spellCheck={false} autoComplete="off"
                 className="flex-1 bg-transparent py-2.5 font-mono text-sm text-robark-white outline-none placeholder:text-robark-mute" />
             </div>
+            {xHandle && (
+              <p className="font-mono text-[11px] text-robark-green">detected: @{xHandle}</p>
+            )}
           </div>
         </Step>
 
-        {/* 4 — Like */}
-        <Step n="04" title="Like the launch post" done={v.liked}>
+        {/* 3 — Like */}
+        <Step n="03" title="Like the launch post" done={v.liked}>
           <div className="flex flex-wrap items-center gap-3">
             <a href={likeUrl} target="_blank" rel="noreferrer" onClick={() => setLiked(true)} className="btn-line text-[13px]">Open & like</a>
             <Toggle on={v.liked} onClick={() => setLiked((s) => !s)} label="I liked it" />
           </div>
         </Step>
 
-        {/* 5 — Comment */}
-        <Step n="05" title="Comment on the launch post" done={v.commented}>
+        {/* 4 — Comment */}
+        <Step n="04" title="Comment on the launch post" done={v.commented}>
           <div className="flex flex-wrap items-center gap-3">
             <a href={replyUrl} target="_blank" rel="noreferrer" onClick={() => setCommented(true)} className="btn-line text-[13px]">Open & comment</a>
             <Toggle on={v.commented} onClick={() => setCommented((s) => !s)} label="I commented" />
           </div>
         </Step>
 
-        {/* 6 — Wallet */}
-        <Step n="06" title="Your wallet" done={v.wallet}>
+        {/* 5 — Wallet */}
+        <Step n="05" title="Your wallet" done={v.wallet}>
           <div className="flex items-center gap-2 border-2 border-robark-line bg-robark-black px-3 focus-within:border-robark-rust">
             <span className="font-mono text-sm text-robark-green">$</span>
             <input value={wallet} onChange={(e) => setWallet(e.target.value)} placeholder="0x… your Ethereum wallet" spellCheck={false} autoComplete="off"
