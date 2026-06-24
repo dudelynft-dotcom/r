@@ -8,9 +8,9 @@ import { SITE } from "@/lib/config";
 
 const NAV = [
   { href: "/#how", label: "How it works" },
-  { href: "/#eligible", label: "Eligible" },
   { href: "/#mint", label: "Mint" },
   { href: "/checker", label: "Checker" },
+  { href: "/whitelist", label: "Get WL" },
 ];
 
 export function SiteHeader() {
