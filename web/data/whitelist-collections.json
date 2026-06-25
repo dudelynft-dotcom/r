@@ -1,6 +1,6 @@
 {
-  "_note": "Eligible collections snapshot. Edited 2026-06-23: +3 (brainrot, funkari, quirkies).",
-  "generatedAt": "2026-06-23T00:00:00Z",
+  "_note": "Eligible collections snapshot. Edited 2026-06-24: +1 (rockbottom).",
+  "generatedAt": "2026-06-24T00:00:00Z",
   "trending": [
     {
       "address": "0xbd3531da5cf5857e7cfaa92426877b022e612cf8",
@@ -143,6 +143,11 @@
       "address": "0xd4b7d9bb20fa20ddada9ecef8a7355ca983cccb1",
       "name": "Quirkies",
       "image": "https://i2c.seadn.io/collection/quirkiesoriginals/image_type_logo/30dd6aec41f4b309557f00e8e6228f/a930dd6aec41f4b309557f00e8e6228f.jpeg"
+    },
+    {
+      "address": "0x155ae5eec7bf1dc2dbee07ef0577fa74e8d8ecb8",
+      "name": "Rock Bottom",
+      "image": "https://i2c.seadn.io/collection/rock-bottom/image_type_logo/1f101cf0bfc1e6c77c63915e4f8158/ad1f101cf0bfc1e6c77c63915e4f8158.jpeg"
     }
   ]
 }
