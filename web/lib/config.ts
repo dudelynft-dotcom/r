@@ -22,7 +22,7 @@ export const SITE = {
   etherscan: "https://etherscan.io",
 } as const;
 
-export const MINT_PRICE_ETH = "0.0003"; // allowlist (Tier 1 / Tier 2)
+export const MINT_PRICE_ETH = "0.0001"; // allowlist (Tier 1 / Tier 2)
 export const MINT_PRICE_PUBLIC_ETH = "0.10"; // public stage
 
 export const ANNOUNCEMENT = {
@@ -62,7 +62,7 @@ export const PHASES = [
     name: "Tier 1 — Allowlist",
     badge: "TOP HOLDERS",
     time: "Jun 29 · 09:00 UTC",
-    price: "0.0003",
+    price: "0.0001",
     limit: "1 / wallet",
     rule: "Top holders (most eligible collections). Mints first.",
   },
@@ -71,7 +71,7 @@ export const PHASES = [
     name: "Tier 2 — Allowlist",
     badge: "ALLOWLIST",
     time: "Jun 29 · 12:00 UTC",
-    price: "0.0003",
+    price: "0.0001",
     limit: "1 / wallet",
     rule: "The rest of the allowlist + X supporters.",
   },

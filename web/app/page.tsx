@@ -203,7 +203,7 @@ export default function HomePage() {
           <p className="eyebrow">The 24-Hour Degen Mint</p>
           <h2 className="mt-3 font-display text-4xl font-bold text-robark-white sm:text-5xl">Mint goes live June 29</h2>
           <p className="mt-4 text-robark-soft">
-            Allowlist mints at <span className="text-robark-white">0.0003 ETH</span>, public at{" "}
+            Allowlist mints at <span className="text-robark-white">0.0001 ETH</span>, public at{" "}
             <span className="text-robark-white">0.10 ETH</span>. Snapshot is final{SNAP_DATE ? ` — taken ${SNAP_DATE}` : ""}.
           </p>
         </div>
