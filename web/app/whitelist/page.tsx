@@ -9,9 +9,7 @@ const HANDLE = SITE.twitterHandle;
 // The X app swallows /intent/ links and dumps you on the home feed. Linking to
 // the actual profile + post (which the app routes correctly) is reliable on mobile.
 const followUrl = `https://x.com/${HANDLE}`; // opens the profile → tap Follow
-const QUOTE_POST = ANNOUNCEMENT.tweetUrl; // quote this one
-const LIKE_RT_POST = ANNOUNCEMENT.likeRtTweetUrl; // like + retweet this one
-const LIKE_RT_POST_2 = ANNOUNCEMENT.likeRtTweetUrl2; // and this one
+const POST = ANNOUNCEMENT.taskTweetUrl; // quote + like + retweet all happen on this post
 
 // capture the handle from a quote-tweet link: x.com/<handle>/status/<id>
 const TWEET_RE = /(?:x|twitter)\.com\/([^/]+)\/status\/\d+/i;
@@ -29,7 +27,6 @@ export default function WhitelistPage() {
   const [follow, setFollow] = useState(false);
   const [quote, setQuote] = useState("");
   const [likedRt, setLikedRt] = useState(false);
-  const [likedRt2, setLikedRt2] = useState(false);
   const [wallet, setWallet] = useState("");
 
   const [loading, setLoading] = useState(false);
@@ -43,10 +40,9 @@ export default function WhitelistPage() {
       follow,
       quote: TWEET_RE.test(quote.trim()) && xHandle.length > 0,
       likedRt,
-      likedRt2,
       wallet: isAddress(wallet.trim()),
     }),
-    [follow, quote, xHandle, likedRt, likedRt2, wallet],
+    [follow, quote, xHandle, likedRt, wallet],
   );
   const ready = Object.values(v).every(Boolean);
 
@@ -117,9 +113,9 @@ export default function WhitelistPage() {
         </Step>
 
         {/* 2 — Quote tweet (your handle is read from the link) */}
-        <Step n="02" title="Quote-tweet the post" done={v.quote}>
+        <Step n="02" title="Quote-tweet the launch post" done={v.quote}>
           <div className="space-y-2.5">
-            <a href={QUOTE_POST} target="_blank" rel="noreferrer" className="btn-rust text-[13px]">Open post</a>
+            <a href={POST} target="_blank" rel="noreferrer" className="btn-rust text-[13px]">Open post</a>
             <p className="font-mono text-[11px] text-robark-mute">on the post: tap Repost → Quote, post it, then paste your link below.</p>
             <div className="flex items-center gap-2 border-2 border-robark-line bg-robark-black px-3 focus-within:border-robark-rust">
               <span className="font-mono text-sm text-robark-mute">↳</span>
@@ -132,26 +128,17 @@ export default function WhitelistPage() {
           </div>
         </Step>
 
-        {/* 3 — Like + Retweet (post 1) */}
-        <Step n="03" title="Like + Retweet the post" done={v.likedRt}>
+        {/* 3 — Like + Retweet the same post */}
+        <Step n="03" title="Like + Retweet the launch post" done={v.likedRt}>
           <div className="flex flex-wrap items-center gap-3">
-            <a href={LIKE_RT_POST} target="_blank" rel="noreferrer" onClick={() => setLikedRt(true)} className="btn-line text-[13px]">Open post</a>
+            <a href={POST} target="_blank" rel="noreferrer" onClick={() => setLikedRt(true)} className="btn-line text-[13px]">Open post</a>
             <Toggle on={v.likedRt} onClick={() => setLikedRt((s) => !s)} label="I liked + reposted" />
           </div>
-          <p className="mt-2 font-mono text-[11px] text-robark-mute">opens the post — tap the heart, then Repost.</p>
+          <p className="mt-2 font-mono text-[11px] text-robark-mute">same post — tap the heart, then Repost.</p>
         </Step>
 
-        {/* 4 — Like + Retweet (post 2) */}
-        <Step n="04" title="Like + Retweet the second post" done={v.likedRt2}>
-          <div className="flex flex-wrap items-center gap-3">
-            <a href={LIKE_RT_POST_2} target="_blank" rel="noreferrer" onClick={() => setLikedRt2(true)} className="btn-line text-[13px]">Open post</a>
-            <Toggle on={v.likedRt2} onClick={() => setLikedRt2((s) => !s)} label="I liked + reposted" />
-          </div>
-          <p className="mt-2 font-mono text-[11px] text-robark-mute">opens the post — tap the heart, then Repost.</p>
-        </Step>
-
-        {/* 5 — Wallet */}
-        <Step n="05" title="Your wallet" done={v.wallet}>
+        {/* 4 — Wallet */}
+        <Step n="04" title="Your wallet" done={v.wallet}>
           <div className="flex items-center gap-2 border-2 border-robark-line bg-robark-black px-3 focus-within:border-robark-rust">
             <span className="font-mono text-sm text-robark-green">$</span>
             <input value={wallet} onChange={(e) => setWallet(e.target.value)} placeholder="0x… your Ethereum wallet" spellCheck={false} autoComplete="off"

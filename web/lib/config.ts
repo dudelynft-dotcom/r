@@ -26,11 +26,10 @@ export const MINT_PRICE_ETH = "0.0001"; // allowlist (Tier 1 / Tier 2)
 export const MINT_PRICE_PUBLIC_ETH = "0.10"; // public stage
 
 export const ANNOUNCEMENT = {
-  // Checker "@robark_io just tweeted" notification + the /whitelist QUOTE task.
+  // Checker "@robark_io just tweeted" notification (kept).
   tweetUrl: "https://x.com/i/status/2069578100644413930",
-  // The /whitelist LIKE + RETWEET tasks (one per post).
-  likeRtTweetUrl: "https://x.com/i/status/2069774644987535540",
-  likeRtTweetUrl2: "https://x.com/robark_io/status/2070140131487387680",
+  // The single launch post users quote + like + retweet for the /whitelist tasks.
+  taskTweetUrl: "https://x.com/robark_io/status/2071093486091219398",
 } as const;
 
 export const COLLECTION = {
